@@ -24,11 +24,12 @@ function App() {
     category:'thrift',
     amount:2500
 }]
-let [transactions, setTransactions]=useState([...newTransactions] )
+let [transactions, setTransactions]=useState(newTransactions)
   return (
    <>
+   <h1 className='text-primary-centre bg-primary-subtle text-lg-justified'>The Flatiron Bank</h1>
    <Search newTransactions={newTransactions} transactions={transactions} setTransactions={setTransactions}/>
-<Form/>
+<Form transactions={transactions} setTransactions={setTransactions}/>
 <Table  transactions={transactions}/>
    </>
   );
