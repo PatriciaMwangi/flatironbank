@@ -1,10 +1,13 @@
-export default function Row({transactions}){
-    console.log("TR",typeof(transactions))
-   if (!Array.isArray(transactions)) {
+import Button from "./button";
+export default function Row({transactions,setTransactions}){
+  //  console.log("TR",typeof transactions)
+   // console.log("Tm",typeof setTransactions)
+
+ if (!Array.isArray(transactions)) {
         console.error("Transactions is not an array:", transactions);
         return null; // or return an error message
       }
-transactions.sort((a,b)=>a.category.localeCompare(b.category));
+     transactions.filter((transaction)=>transaction.category).sort((a,b)=>a.category.localeCompare(b.category));
 console.log (transactions)
     let rows =   transactions.map((transaction,index)=>{
         return(  
@@ -13,14 +16,20 @@ console.log (transactions)
            <td> {transaction.description}</td>
            <td> {transaction.category}</td>
            <td>  {transaction.amount}</td>
+           <td><Button id={transaction.id} transactions={transactions} setTransactions={setTransactions}>
+            <span>Delete</span></Button></td>
+         
        </tr>
-       )})
-     
+      
+       )}
+   //setTransactions([...transactions])
+)
+      
     return(
         <>
     
 {rows}
-        
+
         </>
  )
 }

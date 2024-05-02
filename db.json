@@ -1,0 +1,179 @@
+{
+  "transactions": [
+    {
+      "date": "12/9/2019",
+      "description": "paycheck from krusty crab",
+      "category": "income",
+      "amount": 500,
+      "id": "b8b9"
+    },
+    {
+      "date": "8/7/2019",
+      "description": "Yolo",
+      "category": "Food",
+      "amount": 350,
+      "id": "b0c8"
+    },
+    {
+      "date": "6/5/2019",
+      "description": "thrift shops",
+      "category": "thrift",
+      "amount": 2500,
+      "id": "fd40"
+    },
+    {
+      "id": "1f30",
+      "date": "2024-04-02",
+      "description": "nxmz",
+      "category": "aksm",
+      "amount": "89"
+    },
+    {
+      "id": "c69e",
+      "date": "2024-04-09",
+      "description": "paycheck from bob's burgers",
+      "category": "income",
+      "amount": "100"
+    },
+    {
+      "id": "7bd0",
+      "date": "2024-04-09",
+      "description": "paycheck from bob's burgers",
+      "category": "mm ",
+      "amount": "657"
+    },
+    {
+      "id": "336b",
+      "date": "2024-05-13",
+      "description": "ska",
+      "category": "expenditure",
+      "amount": "200000"
+    },
+    {
+      "id": "4fb0",
+      "date": "2024-04-30",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "5635"
+    },
+    {
+      "id": "c0a3",
+      "date": "2024-05-21",
+      "description": "paycheck from bob's burgers",
+      "category": "income",
+      "amount": "789"
+    },
+    {
+      "id": "ac04",
+      "date": "2024-05-07",
+      "description": "ku",
+      "category": "fees5",
+      "amount": "50000"
+    },
+    {
+      "id": "3e47",
+      "date": "2024-05-03",
+      "description": "l",
+      "category": "cjn",
+      "amount": "89"
+    },
+    {
+      "id": "afe6",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "8991",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "c8ff",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "3abc",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "89e4",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "6db0",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "6a9d",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "4790",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "6cea",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "56fc",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "e9b8",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "d771",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "36ce",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    },
+    {
+      "id": "1d6a",
+      "date": "2024-05-08",
+      "description": "cxz",
+      "category": "cjn",
+      "amount": "0097"
+    }
+  ]
+}

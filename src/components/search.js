@@ -2,21 +2,21 @@
 
  export default function Search({newTransactions,transactions,setTransactions}){
     function handler(event){
-        let target=event.target.value.toLowerCase()
+        let target=event.target.value.trim().toLowerCase()
         let filtered=transactions.filter((transaction)=>{
-            return transaction.description.toLowerCase().includes(target)
+            return transaction.description && transaction.description.toLowerCase().includes(target)
             
         })
-        setTransactions(target.length >0 && filtered.length > 0? filtered:newTransactions)
-        console.log(transactions)
-      }
+        setTransactions(target.length > 0 && filtered.length > 0 ? filtered:transactions)
+        console.log('fi',filtered)}
+
     function handleCategory(event){
-let target=event.target.value.toLowerCase()
+let target=event.target.value.trim().toLowerCase()
 let filtered=transactions.filter((transaction)=>{
-    return transaction.category.toLowerCase().includes(target)
+    return transaction.category && transaction.category.toLowerCase().includes(target)
 })
-setTransactions(target.length >0 && filtered.length >0? filtered:newTransactions)
-      }
+
+setTransactions(target.length >0 ? filtered:[{...transactions}])}
       function handleAll(event){
          
             handler(event)
