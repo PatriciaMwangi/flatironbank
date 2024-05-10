@@ -1,6 +1,6 @@
 
 
- export default function Search({newTransactions,transactions,setTransactions}){
+ export default function Search({transactions,setTransactions}){
     function handler(event){
         let target=event.target.value.trim().toLowerCase()
         let filtered=transactions.filter((transaction)=>{
@@ -8,7 +8,8 @@
             
         })
         setTransactions(target.length > 0 && filtered.length > 0 ? filtered:transactions)
-        console.log('fi',filtered)}
+        console.log('fi',filtered)
+    }
 
     function handleCategory(event){
 let target=event.target.value.trim().toLowerCase()
@@ -16,7 +17,7 @@ let filtered=transactions.filter((transaction)=>{
     return transaction.category && transaction.category.toLowerCase().includes(target)
 })
 
-setTransactions(target.length >0 ? filtered:[{...transactions}])}
+setTransactions(target.length >0 ? filtered:[...transactions])}
       function handleAll(event){
          
             handler(event)

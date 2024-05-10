@@ -14,7 +14,7 @@ export default function Form({transactions,setTransactions}){
    
     function submit(event){
             event.preventDefault()
-            setTransactions([{...transactions,formData}])
+            setTransactions([...transactions,formData])
           addMe(formData)
          }
          function addMe(transactions){

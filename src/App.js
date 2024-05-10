@@ -5,8 +5,8 @@ import Search from './components/search';
 import Form from './components/form';
 
 function App() {
-  let newTransactions=[]
-const [transactions, setTransactions]=useState(newTransactions)
+
+const [transactions, setTransactions]=useState([])
 /*fetch('http://localhost:3000/transactions',{
   method: "GET",
   headers: {
@@ -20,7 +20,8 @@ throw new Error('problem')}
   .then((dta)=>setTransactions([...dta,newTransactions]))
  
  console.log(transactions)*/
- useEffect(()=>{fetch("http://localhost:3001/transactions",{
+ useEffect(
+  ()=>{fetch("http://localhost:3001/transactions",{
   method: "GET",
   headers: {
     "Content-Type": "application/json"
@@ -36,17 +37,15 @@ throw new Error('problem')}
   
  })
   
-  .then(data => {
-    setTransactions([...data])
-    //console.log(transactions)
-   // console.log('t',newTransactions)
+  .then((data) => {
+   setTransactions([...data])
    
   })},[])
-  console.log('t',newTransactions)
+ 
   return (
    <>
    <h1 className='text-primary-centre bg-primary-subtle text-lg-justified'>The Flatiron Bank</h1>
-   <Search newTransactions={newTransactions} transactions={transactions} setTransactions={setTransactions}/>
+   <Search  transactions={transactions} setTransactions={setTransactions}/>
 <Form transactions={transactions} setTransactions={setTransactions}/>
 <Table  transactions={transactions} setTransactions={setTransactions}/>
    </>

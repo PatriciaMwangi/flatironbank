@@ -22,9 +22,7 @@ console.log (transactions)
        </tr>
       
        )}
-   //setTransactions([...transactions])
 )
-      
     return(
         <>
     
