@@ -17,7 +17,7 @@ console.log(filtere,'f')
 }
 
 function fetched (){
-    fetch(`http://localhost:3001/transactions/${id}`,{
+    fetch(`https://json-server-sg8o.onrender.com/transactions/${id}`,{
     method:'DELETE',
     headers:{
         "Content-Type":"application/json"

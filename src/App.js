@@ -7,21 +7,9 @@ import Form from './components/form';
 function App() {
 
 const [transactions, setTransactions]=useState([])
-/*fetch('http://localhost:3000/transactions',{
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json"
- } })
-  .then((res)=>{
-    if(!res.ok){
-throw new Error('problem')}
-  return res.json()
-})
-  .then((dta)=>setTransactions([...dta,newTransactions]))
- 
- console.log(transactions)*/
+
  useEffect(
-  ()=>{fetch("http://localhost:3001/transactions",{
+  ()=>{fetch("https://json-server-sg8o.onrender.com/transactions",{
   method: "GET",
   headers: {
     "Content-Type": "application/json"

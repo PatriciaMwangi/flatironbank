@@ -1,6 +1,7 @@
-
+//import React,{useState} from "react"
 
  export default function Search({transactions,setTransactions}){
+   // const [searched,setSearched]=useState({transactions})
     function handler(event){
         let target=event.target.value.trim().toLowerCase()
         let filtered=transactions.filter((transaction)=>{
@@ -10,7 +11,7 @@
         setTransactions(target.length > 0 && filtered.length > 0 ? filtered:transactions)
         console.log('fi',filtered)
     }
-
+ 
     function handleCategory(event){
 let target=event.target.value.trim().toLowerCase()
 let filtered=transactions.filter((transaction)=>{

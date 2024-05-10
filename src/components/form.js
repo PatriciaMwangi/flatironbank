@@ -18,7 +18,7 @@ export default function Form({transactions,setTransactions}){
           addMe(formData)
          }
          function addMe(transactions){
-            fetch("http://localhost:3001/transactions",{
+            fetch("https://json-server-sg8o.onrender.com/transactions",{
                method:"POST",
                headers:{
                   "Content-Type": "application/json"
