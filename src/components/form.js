@@ -1,62 +1,54 @@
-import {useState} from 'react'
-export default function Form({transactions,setTransactions}){
-  
-    const [formData,setFormData]=useState({
-            date:'',
-            description:'',
-            category:'',
-            amount:'',
-            
-         } )
-       
-        
-   // console.log(transactions,"aftermath")
-   
-    function submit(event){
-            event.preventDefault()
-            setTransactions([...transactions,formData])
-          addMe(formData)
-         }
-         function addMe(transactions){
-            fetch("https://json-server-sg8o.onrender.com/transactions",{
-               method:"POST",
-               headers:{
-                  "Content-Type": "application/json"
-               },
-               body:JSON.stringify(transactions)        
-         })
-         }
+import React, { useState } from 'react';
 
-         function change(event){
-            let {name,value}=event.target
-      
-            setFormData(FormData => ({
-               ...FormData,
-               [name]: value
-           }));
-         console.log(value)
-         }
-    return(
-       
-    <>
-    <form onSubmit={submit} className="row">
-        <div className= 'col-3'>
-        <input required type="date" className="form-control" onChange={change} placeholder='date'name='date'value={formData.date}></input>
+const Form = ({ addTransaction }) => {
+    const [transactions, setTransactions] = useState(
+        { date: "",
+         description: '',
+       category: "", 
+       amount: "" 
+      })
+
+
+    const handleChange = (e) => {
+        setTransactions({ ...transactions, [e.target.name]: e.target.value })
+    }
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        addTransaction(transactions)
+        setTransactions({ date: "", 
+        description: '',
+         category: "",
+          amount: "" 
+         })
+
+    };
+
+    return (
+        <div >
+            <form onSubmit={handleFormSubmit} className='row g-3 mt-1'>
+                <div className='col-md-3'>
+           
+                    <input type="date" name="date" value={transactions.date} onChange={handleChange} className='form-control' />
+                </div>
+                <div className='col-md-3'>
+                    <input type="text" name="description" value={transactions.description} placeholder="Description" required onChange={handleChange} className='form-control' />
+                </div>
+                <div className='col-md-3'>
+                    <input type="text" name="category" placeholder="Category" value={transactions.category} required onChange={handleChange} className='form-control' />
+                </div>
+                <div className='col-md-3'>
+                    <input type="number" name="amount" placeholder="Amount" value={transactions.amount} required onChange={handleChange} className='form-control' />
+                </div>
+                
+                    <button type="submit" className='btn btn-primary'>Add Transaction</button>
+               
+            </form>
+
+
+
+
         </div>
-        <div className= 'col-3'>
-        <input required type="text" className="form-control" onChange={change} placeholder='description'name='description'value={formData.description}></input>
-        </div>
-        <div className= 'col-3'>
-        <input required type="text" className="form-control" onChange={change} placeholder='category'name='category' value={formData.category}></input>
-        </div>
-        <div className= 'col-3'>
-        <input required type="number" className="form-control" onChange={change} placeholder='amount'name='amount'value={formData.amount}></input>
-        </div>
-        
-        <div className= 'col-4 mx-auto'>
-            <button required type="submit" className="col-12">Add transaction</button>
-      
-        </div>
-    </form>
-    </>
- )}
+    );
+};
+
+export default Form;

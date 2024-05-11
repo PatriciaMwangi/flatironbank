@@ -1,42 +1,139 @@
-import { useState,useEffect } from 'react';
 import './App.css';
-import Table from './components/Table'
+import Table from './components/Table';
+import Form from './components/form'
 import Search from './components/search';
-import Form from './components/form';
-
+import { useState } from'react';
 function App() {
-
-const [transactions, setTransactions]=useState([])
-
- useEffect(
-  ()=>{fetch("https://json-server-sg8o.onrender.com/transactions",{
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json"
-  }
-  }).then(response => {
-    console.log(response)
-    if(!response.ok){
-      throw new Error('problem')
+  const data = [
+    {
+      "id": 1,
+      "date": "2019-12-01",
+      "description": "Paycheck from Bob's Burgers",
+      "category": "Income",
+      "amount": 1000
+    },
+    {
+      "id": 2,
+      "date": "2019-12-01",
+      "description": "South by Southwest Quinoa Bowl at Fresh & Co",
+      "category": "Food",
+      "amount": -10.55
+    },
+    {
+      "id": 3,
+      "date": "2019-12-02",
+      "description": "South by Southwest Quinoa Bowl at Fresh & Co",
+      "category": "Food",
+      "amount": -10.55
+    },
+    {
+      "id": 4,
+      "date": "2019-12-04",
+      "description": "Sunglasses, Urban Outfitters",
+      "category": "Fashion",
+      "amount": -24.99
+    },
+    {
+      "id": 5,
+      "date": "2019-12-06",
+      "description": "Venmo, Alice Pays you for Burrito",
+      "category": "Food",
+      "amount": 8.75
+    },
+    {
+      "id": 6,
+      "date": "2019-12-06",
+      "description": "Chipotle",
+      "category": "Food",
+      "amount": -17.59
+    },
+    {
+      "id": 7,
+      "date": "2019-12-07",
+      "description": "Birthday Check from Grandma",
+      "category": "Gift",
+      "amount": 50
+    },
+    {
+      "id": 8,
+      "date": "2019-12-09",
+      "description": "Lyft Ride",
+      "category": "Transportation",
+      "amount": -13.25
+    },
+    {
+      "id": 9,
+      "date": "2019-12-11",
+      "description": "Paycheck from Bob's Burgers",
+      "category": "Income",
+      "amount": 1000
+    },
+    {
+      "id": 10,
+      "date": "2019-12-16",
+      "description": "Tickets, Flatiron Multiplex Cinemas",
+      "category": "Entertainment",
+      "amount": -24
+    },
+    {
+      "id": 11,
+      "date": "2019-12-16",
+      "description": "MTA Vending Machine: MetroCard",
+      "category": "Transportation",
+      "amount": -116.39
+    },
+    {
+      "id": 12,
+      "date": "2019-12-17",
+      "description": "Venmo, Pay Roommate for Rent",
+      "category": "Housing",
+      "amount": -975
+    },
+    {
+      "date": "2022-07-09",
+      "description": "Office lunch",
+      "category": "Food",
+      "amount": "2000",
+      "id": 13
+    },
+    {
+      "date": "2022-07-09",
+      "description": "Office lunch Wednesday",
+      "category": "Food",
+      "amount": "3000",
+      "id": 14
     }
-   return (
-    response.json()
-  )
-  
- })
-  
-  .then((data) => {
-   setTransactions([...data])
-   
-  })},[])
- 
+  ]
+const [transactions, setTransactions] = useState(data);
+const [searchedItem, setsearchedItem] = useState('');
+
+const handleSearch = (t) => {
+  setsearchedItem(t);
+};
+const filteredTransactions = transactions.filter(item=>{
+  if(searchedItem.length>0){
+    return item.description.toLowerCase().includes(searchedItem) || item.category.toLowerCase().includes(searchedItem)
+  }
+  else{
+    return true
+  }
+  })
+
+
+const addTransaction = (transaction) => {
+  setTransactions([...transactions, transaction]);
+};
+const handleDelete = (index) =>{
+  setTransactions(transactions.filter((item, i) => i!== index))
+}
   return (
-   <>
-   <h1 className='text-primary-centre bg-primary-subtle text-lg-justified'>The Flatiron Bank</h1>
-   <Search  transactions={transactions} setTransactions={setTransactions}/>
-<Form transactions={transactions} setTransactions={setTransactions}/>
-<Table  transactions={transactions} setTransactions={setTransactions}/>
-   </>
+    <>
+         <h1 style={{ backgroundColor: "#d3e4f5",textAlign:"center" }}>THE ROYAL BANK OF FLATIRON</h1>
+      <Search searchedItem={searchedItem} handleSearch={handleSearch} />
+      <Form addTransaction={addTransaction} />
+      <Table transactions={filteredTransactions} handleDelete={handleDelete} />
+
+    </>
   );
 }
 

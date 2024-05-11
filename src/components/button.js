@@ -1,35 +1,6 @@
-export default function Button({children,transactions,setTransactions,id}){
-   // console.log(typeof transactions,'bu')
-  // console.log(transactions,'p')
+export default function Button({children,index,handleDelete}){
 
-
-function handleMe(){
-  fetched(id)
-    let filtere=transactions.filter((transaction)=>{
-    return (
-        id !== transaction.id
-
+    return(
+        <button onClick={()=>handleDelete(index)} className="btn btn-sm btn-danger">{children}</button>
     )
-})
-setTransactions([...filtere])
-console.log(transactions,'t')
-console.log(filtere,'f')
-}
-
-function fetched (){
-    fetch(`https://json-server-sg8o.onrender.com/transactions/${id}`,{
-    method:'DELETE',
-    headers:{
-        "Content-Type":"application/json"
-    }})
-
-.then((res)=>res.json())
-.then((data)=>console.log('transaction deleted'))
-
-}
-
-return(
-    <button onClick={()=>handleMe()}>{children}</button>
-   
-)
 }
