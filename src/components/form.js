@@ -39,9 +39,10 @@ const Form = ({ addTransaction }) => {
                 <div className='col-md-3'>
                     <input type="number" name="amount" placeholder="Amount" value={transactions.amount} required onChange={handleChange} className='form-control' />
                 </div>
-                
-                    <button type="submit" className='btn btn-primary'>Add Transaction</button>
-               
+                <div className='col-md-12 d-flex justify-content-center'> {/* Centering the button */}
+
+                    <button type="submit" className='btn btn-outline-info' style={{width:'300px',display:'flex', justifyContent:"center", textAlign:'center',backgroundColor:"#d3e4f5"}}>Add Transaction</button>
+               </div>
             </form>
 
 
